@@ -1,24 +1,19 @@
-import java.util.Scanner;
+import java.io.*;
+
 
 public class Zadanie16 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj poczatkowa populacje");
-        double populacja = scanner.nextInt();
-        System.out.println("Podaj ilosc dni");
-        double dni = scanner.nextInt();
-        System.out.println("Podaj ilosc procent");
-        double procent = scanner.nextDouble();
-        double przeliczony = procent/100+1;
-
-        if(populacja>=2 && dni>=1 && przeliczony>=0){
-            for(int i=1;i<=dni;i++){
-                double populacjakoniec = populacja*przeliczony;
-
-                System.out.println("Dzień " + i + " populacja " + populacjakoniec);
-            }
-        } else{
-            System.out.println("Błędne dane");
-        }
+    public static void main(String[] args) throws Exception{
+            InputStreamReader in = new InputStreamReader(System.in);
+            BufferedReader br = new BufferedReader(in);
+            System.out.println("Podaj swoje imie i nazwisko");
+            String imie = br.readLine();
+            System.out.println("Opisz siebie");
+            String opis = br.readLine();
+            String index = "index.html";
+            FileWriter html = new FileWriter(index, true);
+            PrintWriter dopis = new PrintWriter(html);
+            dopis.println("<center><h1>" + imie + "</h1></center>");
+            dopis.print("<hr>" + opis + "<hr>");
+            dopis.close();
     }
 }
